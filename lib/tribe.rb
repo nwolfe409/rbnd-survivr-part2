@@ -16,7 +16,7 @@ class Tribe
   
   def tribal_council(options = {})
     immune = options[:immune]
-    member_voted_out = @members.select { |member| member != immune }.first
+    member_voted_out = @members.select { |member| member != immune }.sample
     @members.delete(member_voted_out)
     puts "#{member_voted_out.to_s.blue} was asked to leave the tribe."
     return member_voted_out
