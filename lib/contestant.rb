@@ -8,4 +8,5 @@ class Contestant
   def to_s
     @name
   end
+
 end

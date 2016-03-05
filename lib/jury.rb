@@ -24,13 +24,14 @@ class Jury
   
   def report_votes(final_votes)
     final_votes.each do |finalist, vote_count|
- 			puts "#{finalist} received #{vote_count} vote(s)."
+ 			puts "#{finalist.to_s.blue} received #{vote_count} vote(s)."
  		end
   end
   
   def announce_winner(final_votes)
     winner = final_votes.max_by{ |k,v| v }[0]
-    puts "#{winner} has won Survivr!"
+    puts "#{winner.to_s.yellow} has won Survivr!"
+    return winner
   end
 
 end

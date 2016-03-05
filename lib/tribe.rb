@@ -1,3 +1,5 @@
+require 'colorizr'
+
 class Tribe
 
   attr_reader :name, :members
@@ -5,7 +7,7 @@ class Tribe
   def initialize(options = [])
     @name = options[:name]
     @members = options[:members]
-    puts "#{@name} tribe created."
+    puts "#{@name.red} tribe created."
   end
 
   def to_s
@@ -16,7 +18,8 @@ class Tribe
     immune = options[:immune]
     member_voted_out = @members.select { |member| member != immune }.first
     @members.delete(member_voted_out)
-    puts "#{member_voted_out} was asked to leave the tribe."
+    puts "#{member_voted_out.to_s.blue} was asked to leave the tribe."
+    return member_voted_out
   end
 
 end

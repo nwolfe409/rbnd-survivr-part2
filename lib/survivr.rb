@@ -1,3 +1,4 @@
+require 'colorizr'
 require_relative "game"
 require_relative "tribe"
 require_relative "contestant"
@@ -24,16 +25,13 @@ def phase_one
         losing_team = @borneo.immunity_challenge
         puts "#{losing_team} lost the challange"
         losing_team.tribal_council()
-        #puts "#{@member_voted_out} was asked to leave the tribe."
-        #puts "#{losing_team.members}"
-    
     end
 end
 
 def phase_two
     3.times do
       immune_idol = @borneo.individual_immunity_challenge
-      puts "#{immune_idol} has the immunity idol"
+      puts "#{immune_idol.to_s.green} has the immunity idol"
       @merge_tribe.tribal_council(immune: immune_idol)
     end
 end
@@ -41,7 +39,7 @@ end
 def phase_three
     7.times do
       immune_idol = @borneo.individual_immunity_challenge
-      puts "#{immune_idol} has the immunity idol"
+      puts "#{immune_idol.to_s.green} has the immunity idol"
       jury_member = @merge_tribe.tribal_council(immune: immune_idol)
       @jury.add_member(jury_member)
     end
